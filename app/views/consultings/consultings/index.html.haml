@@ -1,0 +1,33 @@
+.lobby.container.main-content
+  - unless @agents.empty?
+    .row.thumbnails
+      - @agents.each do |agent|
+        .agent
+          .thumbnail
+            %a.start-chat{'data-online-agent-id' => "#{agent.id}", href: "/consultings/#{agent.id}"}
+              %span.consultant-name
+                #{agent.id}号咨询师 #{agent.name}
+              .cha
+                %i.fa-comments-o.fa
+  - else
+    .no-agent-online
+      对不起，当前没有咨询师在线，我们的工作时间为9：00 - 18：00，请明天再与我们联系。
+
+#start-chat-modal.modal.hide.fade
+  .modal-header
+    %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'} &times;
+    %h3 请输入您的基本信息
+  .modal-body
+    %form#start-chat-form{method: 'POST'}
+      .control-group
+        %label.control-label{for: 'name'} 怎么称呼您
+        .controls
+          %input#name{name: 'name', type: 'text'}
+      .control-group
+        %label.control-label{for: 'phone'} 您的手机号码
+        .controls
+          %input#phone{name: 'phone', type: 'text'}
+          %input{name: 'authenticity_token', value: "#{form_authenticity_token}", type: 'hidden' }
+  .modal-footer
+    %a#start-chat-submit.btn.btn-primary{href: '#'} 开始咨询
+    %button.btn{'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'} 关闭

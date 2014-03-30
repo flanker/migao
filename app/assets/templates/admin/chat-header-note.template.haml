@@ -1,0 +1,13 @@
+#note-modal.modal.hide.fade
+  .modal-header
+    %button.close{'aria-hidden': 'true', 'data-dismiss': 'modal', type: 'button'} &times;
+    %h3 添加备注
+  .modal-body
+    %form#note-form{method: 'POST'}
+      .control-group
+        %label.control-label{for: 'note'} 请为本次咨询添加备注，便于日后查看
+        .controls
+          %textarea#note{name: 'note'}<= chat.get('note')
+  .modal-footer
+    %a#note-submit.btn.btn-primary{href: '#'} 保存
+    %button.btn{'aria-hidden': 'true', 'data-dismiss': 'modal', type: 'button'} 取消

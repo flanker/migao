@@ -1,0 +1,9 @@
+%label
+  %span.status-label.online{'class': model.get('online') ? '' : 'hide'}
+    正在咨询
+  %span.status-label.offline{'class': model.get('online') ? 'hide' : ''}
+    停接新客
+  - if (model.get('online') === true) {
+    %input#online-agent-switch{type: 'checkbox', checked: 'checked', 'data-on': 'success', 'data-off': 'warning'}
+  - } else {
+    %input#online-agent-switch{type: 'checkbox', 'data-on': 'success', 'data-off': 'warning'}

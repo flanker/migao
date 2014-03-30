@@ -1,0 +1,10 @@
+- if (chat) {
+  .information
+    %h3.customer-name= chat.get('customer_name')
+    %span
+      = '电话：' + chat.get('customer_phone')
+  .actions
+    %a.note.btn 添加备注
+    %a.close-chat.btn.btn-danger{name: 'close_chat'} 结束咨询
+- } else {
+  %h3 暂无客户

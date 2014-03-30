@@ -1,0 +1,8 @@
+- if (message.get('from') == 'system') {
+  .system.what = message.get('content')
+- else {
+  - if (message.get('from') == 'client') {
+    .who = chat.get('customer_name') + ':'
+  - } else {
+    .who = '咨询师 ' + chat.get('online_agent_name') + ':'
+  .what = message.get('content')

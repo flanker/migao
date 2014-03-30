@@ -1,0 +1,10 @@
+/.bundle
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*.log
+/tmp
+.idea/*
+.DS_Store
+
+/faye_server/tmp/
+/faye_server/log/

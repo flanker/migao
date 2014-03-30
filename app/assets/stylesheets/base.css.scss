@@ -1,0 +1,86 @@
+$green: #14a085;
+$red: #9d261d;
+
+.clear { clear:both; }
+.container.main-content{
+  margin-top: 100px;
+  margin-bottom: 20px;
+  padding:20px;
+  background-color:#fff;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box
+}
+
+@mixin inline-block {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+.required:after {
+  content: " *";
+  color: $red;
+}
+
+.modal-footer {
+  text-align: left;
+}
+
+.hint {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 0px;
+}
+
+form hr {
+  border-color: #eee;
+  margin: 10px 0;
+}
+
+#error_explanation {
+  border: 1px solid $red;
+  color: $red;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.field_with_errors {
+  display: inline;
+  input, textarea {
+    border: 1px solid $red;
+  }
+}
+
+.file-input-link {
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+
+  .btn-link {
+    vertical-align: top;
+    @include inline-block;
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+  }
+}
+
+.form-login, .form-signup {
+  width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 20px 30px;
+  margin-top: 40px;
+}

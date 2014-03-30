@@ -1,0 +1,291 @@
+.admin-room {
+  position: fixed;
+  width: 940px;
+  top: 50px;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -470px;
+
+  .side-panel {
+    width: 170px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin-right: 20px;
+    min-height: 300px;
+    background-color: white;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    background-clip: padding-box;
+    outline: none;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 1;
+
+    .function-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      padding: 10px 10px;
+      box-sizing: border-box;
+      background-color: #1B1B1B;
+      color: #ccc;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    .customer-panel {
+      position: absolute;
+      bottom: 0;
+      top: 50px;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+
+      ul, li {
+        margin: 0;
+        list-style: none;
+      }
+      li.online {
+        margin: 0px auto;
+        height: 50px;
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        line-height: 50px;
+        background-color: #F4F4F4;
+
+        .customer-wrapper {
+          position: relative;
+
+          &.current-chat {
+            background: #AAA;
+            color: #FFF;
+          }
+
+          .customer {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            position: relative;
+            color: #000;
+            text-align: left;
+            padding-left: 10px;
+
+            .unread {
+              position: absolute;
+              top: 14px;
+              right: 20px;
+              height: 20px;
+              width: 20px;
+              line-height: 20px;
+              background-color: #FF1800;
+              color: #FFF;
+              border: 1px solid #FFF;
+              border-radius: 100%;
+              text-align: center;
+              font-size: 12px;
+            }
+
+            .offline-hint {
+              font-size: 12px;
+            }
+          }
+
+          .remove-offline {
+            display: none;
+            position: absolute;
+            top: 14px;
+            right: 10px;
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+            background-color: 999;
+            color: #FFF;
+            border: 1px solid #666;
+            border-radius: 100%;
+            text-align: center;
+            font-size: 12px;
+            text-decoration: none;
+          }
+
+          &.offline {
+            .customer {
+              background-color: #d4d4d4;
+              color: #AFADAD;
+            }
+
+            &:hover .remove-offline {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .chat-panel {
+    width: 750px;
+    position: absolute;
+    top: 0;
+    left: 180px;
+    bottom: 0;
+    margin-right: 20px;
+    min-height: 300px;
+    z-index: 1;
+
+    .chat-modal {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      width: auto;
+    }
+    .modal-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: #1B1B1B;
+      color: #CCC;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+
+      .information {
+        float: left;
+
+        .customer-name {
+          display: inline-block;
+          margin-right: 10px;
+          max-width: 150px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+
+      .actions {
+        float: right;
+
+        .note {
+          display: inline-block;
+        }
+        .close-chat {
+          display: inline-block;
+        }
+      }
+    }
+    .modal-body {
+      padding: 0;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-height: none;
+
+      .message-display {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 90px;
+
+        .messages {
+          padding: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          overflow: auto;
+          overflow-x: hidden;
+          ms-overflow-x: hidden;
+
+          #previous-chats-view {
+            .previous-chats-summary {
+              margin-bottom: 10px;
+              padding: 10px;
+              border: 1px solid #CCC;
+              border-radius: 8px;
+              background-color: #F3F3F3;
+
+              .previous-chats-title {
+                margin-bottom: 10px;
+              }
+            }
+
+            .previous-chats-section {
+              margin-bottom: 10px;
+              padding: 0;
+
+              ul, li {
+                list-style: none;
+                margin: 0;
+              }
+
+              .system {
+                text-indent: 0;
+                color: #999;
+              }
+
+              .from, .time {
+                display: inline-block;
+              }
+              .from {
+                margin-right: 5px;
+              }
+              .message {
+                margin: 5px 0;
+                text-indent: 1.2em;
+              }
+            }
+          }
+
+          .message {
+            margin: 5px 0;
+          }
+
+          .what {
+            text-indent: 1.2em;
+
+            &.system {
+              text-indent: 0;
+              color: #999;
+            }
+          }
+        }
+      }
+    }
+    .modal-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: left;
+
+      .message-input {
+        display: inline-block;
+        margin-bottom: 0;
+        width: 630px;
+        padding: 4px 5px;
+        margin-right: 10px;
+        resize: none;
+      }
+      .send {
+        display: inline-block;
+        width: 40px;
+        padding: 10px 10px;
+      }
+    }
+  }
+}

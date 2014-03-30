@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %title Admin
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', 'admin/consulting'
+    = csrf_meta_tags
+  %body
+    = yield

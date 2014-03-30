@@ -1,0 +1,19 @@
+= content_for :head do
+  = javascript_include_tag 'consulting'
+
+.room.container
+  .room-wrapper
+    .room-header
+      %h3
+        = @chat.user.id
+        咨询师
+        = @chat.user.name
+        为您服务
+      .actions
+        = link_to 'x', consultings_path, class: 'close', 'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'
+    .room-body
+      #chat-room
+
+:javascript
+  var ONLINE_AGENT_ID = #{@chat.user.id};
+  var ONLINE_CHAT_ID = #{@chat.id};

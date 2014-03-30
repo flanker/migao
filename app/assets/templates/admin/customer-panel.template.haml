@@ -1,0 +1,12 @@
+%div.customer-wrapper{'data-chat-id': chat.get('id'), 'class': className}
+  %a.customer{href: '#'}
+    = chat.get('customer_name')
+    - if (chat.get('online') == false) {
+      %span.offline-hint
+        = '(已结束)'
+    - if (unread > 0) {
+      %span.unread
+        = unread
+  - if (chat.get('online') == false) {
+    %a.remove-offline{href: '#'}
+      X
